@@ -55,37 +55,29 @@ def make__af():
     hd         = 0.5 * d
     ht         = 0.5 * t
 
-    #
-    # -- ltype_== 1 :: straight line.
-    # -- ltype_== 2 :: circle.
-    # -- ltype_, x_, y_, x0_, y0_ -- #
-    #
-    pts        = [ [ 1,           0.0,  0.0,      0.0, 0.0 ],
-                   [ 1,           0.0,    b,      0.0, 0.0 ],
-                   [ 1,         hd-ht,    b,      0.0, 0.0 ],
-                   [ 1,         hd-ht,    a,      0.0, 0.0 ],
-                   [ 2,           +ht,  0.0,       hd,   a ],
-                   [ 1,         hd+ht,    b,      0.0, 0.0 ],
-                   [ 1,     d + hd-ht,    b,      0.0, 0.0 ],
-                   [ 1,     d + hd-ht,    a,      0.0, 0.0 ],
-                   [ 2,           +ht,  0.0,     d+hd,   a ],
-                   [ 1,     d + hd+ht,    b,      0.0, 0.0 ],
-                   [ 1, 2.0*d + hd-ht,    b,      0.0, 0.0 ],
-                   [ 1, 2.0*d + hd-ht,    a,      0.0, 0.0 ],
-                   [ 2,           +ht,  0.0, 2.0*d+hd,   a ],
-                   [ 1, 2.0*d + hd+ht,    b,      0.0, 0.0 ],
-                   [ 1, 3.0*d        ,    b,      0.0, 0.0 ],
-                   [ 1, 3.0*d        ,  0.0,      0.0, 0.0 ],
-                   [ 1,           0.0,  0.0,      0.0, 0.0 ], ]
+    pts        = [ [           0.0,  0.0 ],
+                   [           0.0,    b ],
+                   [         hd-ht,    b ],
+                   [         hd-ht,    a ],
+                   [         hd+ht,    a ],
+                   [         hd+ht,    b ],
+                   [     d + hd-ht,    b ],
+                   [     d + hd-ht,    a ],
+                   [     d + hd+ht,    a ],
+                   [     d + hd+ht,    b ],
+                   [ 2.0*d + hd-ht,    b ],
+                   [ 2.0*d + hd-ht,    a ],
+                   [ 2.0*d + hd+ht,    a ],
+                   [ 2.0*d + hd+ht,    b ],
+                   [ 3.0*d        ,    b ],
+                   [ 3.0*d        ,  0.0 ],
+                   [           0.0,  0.0 ], ]
     pts        = np.array( pts )
 
-    ltype_, x_, y_, x0_, y0_  = 0, 1, 2, 3, 4 
+    x_, y_     = 0, 1
     geometry   = ""
     for ik, pt in enumerate( pts ):
-        if ( int( pt[ltype_] ) == 1 ):
-            geometry += "$po x={0}, y={1} $\n".format( pt[x_], pt[y_] )
-        if ( int( pt[ltype_] ) == 2 ):
-            geometry += "$po nt=2, x={0}, y={1}, x0={2}, y0={3} $\n".format( pt[x_], pt[y_], pt[x0_], pt[y0_] )
+        geometry += "$po x={0}, y={1} $\n".format( pt[x_], pt[y_] )
 
         
     # ------------------------------------------------- #
