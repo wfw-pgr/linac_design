@@ -38,10 +38,12 @@ def display__sf7():
     # --- [3] config Settings                       --- #
     # ------------------------------------------------- #
     cfs.configSettings( configType="cMap_def", config=config )
-    config["FigSize"]        = (5,5)
+    config["FigSize"]        = (8,3)
     config["cmp_position"]   = [0.16,0.12,0.97,0.88]
     config["xTitle"]         = "Z (m)"
     config["yTitle"]         = "R (m)"
+    config["xMajor_Nticks"]  = 8
+    config["yMajor_Nticks"]  = 3
     config["cmp_xAutoRange"] = True
     config["cmp_yAutoRange"] = True
     config["cmp_xRange"]     = [-5.0,+5.0]
@@ -54,7 +56,13 @@ def display__sf7():
     cmt.cMapTri( xAxis=xAxis, yAxis=yAxis, cMap=Er, pngFile=pngFile.format( "Er" ), config=config )
     cmt.cMapTri( xAxis=xAxis, yAxis=yAxis, cMap=Ea, pngFile=pngFile.format( "Ea" ), config=config )
     cmt.cMapTri( xAxis=xAxis, yAxis=yAxis, cMap=Hp, pngFile=pngFile.format( "Hp" ), config=config )
-
+    
+    cfs.configSettings( configType="vector_def", config=config )
+    cmt.cMapTri( xAxis=xAxis, yAxis=yAxis, cMap=Ea, \
+                 uvec =Ez   , vvec =Er   ,
+                 pngFile=pngFile.format( "Ea" ), config=config )
+    
+    
 
 # ======================================== #
 # ===  実行部                          === #
