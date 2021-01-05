@@ -25,8 +25,10 @@ def make__in7():
     line1 = "rect noscreen\n"
     line2 = "{0} {1} {2} {3}\n".format( const["sf7_xMinMaxNum"][0], const["sf7_yMinMaxNum"][0], \
                                         const["sf7_xMinMaxNum"][1], const["sf7_yMinMaxNum"][1]  )
-    line3 = "{0} {1}\n".format( int( const["sf7_xMinMaxNum"][2] ), int( const["sf7_yMinMaxNum"][2] ) )
+    line3 = "{0} {1}\n".format( int( const["sf7_xMinMaxNum"][2]-1 ), \
+                                int( const["sf7_yMinMaxNum"][2]-1 ) )
     line4 = "end\n"
+    # line3 :: number of space should be prescribed == Not number of nodes.
 
     text  = line1 + line2 + line3 + line4
 
