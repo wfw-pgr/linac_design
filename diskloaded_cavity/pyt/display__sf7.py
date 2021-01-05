@@ -48,6 +48,11 @@ def display__sf7():
     config["cmp_yAutoRange"] = True
     config["cmp_xRange"]     = [-5.0,+5.0]
     config["cmp_yRange"]     = [-5.0,+5.0]
+    config["vec_AutoScale"]    = True
+    config["vec_AutoRange"]    = True
+    config["vec_AutoScaleRef"] = 200.0
+    config["vec_nvec_x"]       = 24
+    config["vec_nvec_y"]       = 6
 
     # ------------------------------------------------- #
     # --- [4] plot Figure                           --- #
@@ -57,11 +62,10 @@ def display__sf7():
     cmt.cMapTri( xAxis=xAxis, yAxis=yAxis, cMap=Ea, pngFile=pngFile.format( "Ea" ), config=config )
     cmt.cMapTri( xAxis=xAxis, yAxis=yAxis, cMap=Hp, pngFile=pngFile.format( "Hp" ), config=config )
     
-    cfs.configSettings( configType="vector_def", config=config )
-
-    fig = cmt.cMapTri( pngFile=pngFile.format( "Ea" ), config=config )
-    fig.add__Cntr  ( xAxis=xAxis, yAxis=yAxis, cMap=Hp )
-    fig.add__vector( xAxis=xAxis, yAxis=yAxis, uvec=Ez, vvec=Er )
+    fig = cmt.cMapTri( pngFile=pngFile.format( "Ev" ), config=config )
+    fig.add__contour( xAxis=xAxis, yAxis=yAxis, Cntr=Hp )
+    fig.add__cMap   ( xAxis=xAxis, yAxis=yAxis, cMap=Hp )
+    fig.add__vector ( xAxis=xAxis, yAxis=yAxis, uvec=Ez, vvec=Er, color="blue" )
     fig.save__figure()
     
     
