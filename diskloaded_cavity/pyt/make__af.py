@@ -24,7 +24,7 @@ def make__af():
     # ------------------------------------------------- #
 
     if ( const["auto_drive_point"] ):
-        const["xy_drive"] = [ 0.0, const["disk_radius"] ]
+        const["xy_drive"] = [ 0.0, const["cell_radius"] ]
     
     comment = \
         "### {0} GHz Cavity\n"\
