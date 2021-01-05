@@ -1,0 +1,37 @@
+
+[wave_parametrs.py] output text file 
+
+ cv                            ,                    300000000.0
+ me                            ,                  9.1093837e-31
+ qe                            ,                 -1.6021766e-19
+ bessel_root                   ,                          2.405
+ conductivity                  ,                     57000000.0
+ Z0_vacuum                     ,                          377.0
+ fres                          ,                   2856000000.0
+ cavity_mode                   , 2/3                           
+ pEnergy                       ,                     40000000.0
+ beta_p                        ,                          0.999
+ r_disk                        ,                          0.011
+ r_cavity                      ,                        0.04113
+ z_cavity                      ,                       0.034955
+ z_disk                        ,                          0.005
+ chamfer_disk                  ,                         0.0025
+ n_cell_per_wavelength         ,                            3.0
+ cavity_mode_float             ,             2.0943951023931953
+ beta_max                      ,             0.9999202246921783
+ vph                           ,                    299700000.0
+ wavelength_incavity           ,            0.10493697478991597
+ cavity_length                 ,           0.034978991596638656
+ propagation_const             ,             59.875799924273934
+ 2b_waveguide_approx           ,            0.08041336935630426
+ kappa_coupling_coef           ,            0.04136772750910279
+ xi_attenate_coef              ,             210.29482809922425
+ fres_corrected                ,             2858917847.0501614
+ skin_depth                    ,         1.2473938607026402e-06
+ Qvalue                        ,             13758.825514046328
+ beta_g                        ,           0.010963231332177628
+ attenation_coef               ,            0.19827450753361392
+ surface_resistivity           ,           0.014071614008428605
+ transit_time_factor           ,             0.7464793907899866
+ rsh_shunt_impedance           ,             63591075.478234224
+
