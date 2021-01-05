@@ -58,9 +58,11 @@ def display__sf7():
     cmt.cMapTri( xAxis=xAxis, yAxis=yAxis, cMap=Hp, pngFile=pngFile.format( "Hp" ), config=config )
     
     cfs.configSettings( configType="vector_def", config=config )
-    cmt.cMapTri( xAxis=xAxis, yAxis=yAxis, cMap=Ea, \
-                 uvec =Ez   , vvec =Er   ,
-                 pngFile=pngFile.format( "Ea" ), config=config )
+
+    fig = cmt.cMapTri( pngFile=pngFile.format( "Ea" ), config=config )
+    fig.add__Cntr  ( xAxis=xAxis, yAxis=yAxis, cMap=Hp )
+    fig.add__vector( xAxis=xAxis, yAxis=yAxis, uvec=Ez, vvec=Er )
+    fig.save__figure()
     
     
 
