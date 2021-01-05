@@ -36,11 +36,19 @@ def convert__sf7():
     # ------------------------------------------------- #
     # --- [3] fetch Data from outsf7.txt            --- #
     # ------------------------------------------------- #
-
+    
+    # -- [3-1] load file contents                   --  #
     with open( const["sf7File"], "r" ) as f:
         Data = np.loadtxt( f, skiprows=DataStart, max_rows=nLine )
-    print( Data.shape )
 
+    # -- [3-2] unit conversion                      --  #
+    Data[:,0] = Data[:,0] * 1.e-3 #  Z  :: (mm)   -> (m)
+    Data[:,1] = Data[:,1] * 1.e-3 #  R  :: (mm)   -> (m)
+    Data[:,2] = Data[:,2] * 1.e+6 #  Ez :: (MV/m) -> (V/m)
+    Data[:,3] = Data[:,3] * 1.e+6 #  Er :: (MV/m) -> (V/m)
+    Data[:,4] = Data[:,4] * 1.e+6 # |E| :: (MV/m) -> (V/m)
+    Data[:,5] = Data[:,5]         #  H  :: (A/m)
+    
     # ------------------------------------------------- #
     # --- [4] save as a pointData                   --- #
     # ------------------------------------------------- #
