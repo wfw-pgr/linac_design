@@ -29,10 +29,11 @@ def display__sf7():
     Data  = lpf.load__pointFile( inpFile=datFile, returnType="point" )
     xAxis = Data[:,0]
     yAxis = Data[:,1]
-    Ez    = Data[:,2]
-    Er    = Data[:,3]
-    Ea    = Data[:,4]
-    Hp    = Data[:,5]
+    zAxis = Data[:,2]
+    Ez    = Data[:,3]
+    Er    = Data[:,4]
+    Ea    = Data[:,5]
+    Hp    = Data[:,6]
     
     # ------------------------------------------------- #
     # --- [3] config Settings                       --- #
@@ -53,6 +54,7 @@ def display__sf7():
     config["vec_AutoScaleRef"] = 200.0
     config["vec_nvec_x"]       = 24
     config["vec_nvec_y"]       = 6
+    config["vec_interpolation"] = "nearest"
 
     # ------------------------------------------------- #
     # --- [4] plot Figure                           --- #
