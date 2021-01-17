@@ -21,8 +21,9 @@ def convert__sf7():
     # ------------------------------------------------- #
     # --- [2] search for the data start line        --- #
     # ------------------------------------------------- #
-
-    nLine      = int( const["sf7_xMinMaxNum"][2] * const["sf7_yMinMaxNum"][2] )
+    
+    LI, LJ, LK = int( const["sf7_xMinMaxNum"][2] ), int( const["sf7_yMinMaxNum"][2] ), 1
+    nLine      = LI*LJ*LK
     searchline = "Electromagnetic fields for a rectangular area with corners at:"
     offset     = 7
     DataStart  = None
@@ -40,21 +41,25 @@ def convert__sf7():
     # -- [3-1] load file contents                   --  #
     with open( const["sf7File"], "r" ) as f:
         Data = np.loadtxt( f, skiprows=DataStart, max_rows=nLine )
-
+    wData = np.zeros( (Data.shape[0],7) )
+        
     # -- [3-2] unit conversion                      --  #
-    Data[:,0] = Data[:,0] * 1.e-3 #  Z  :: (mm)   -> (m)
-    Data[:,1] = Data[:,1] * 1.e-3 #  R  :: (mm)   -> (m)
-    Data[:,2] = Data[:,2] * 1.e+6 #  Ez :: (MV/m) -> (V/m)
-    Data[:,3] = Data[:,3] * 1.e+6 #  Er :: (MV/m) -> (V/m)
-    Data[:,4] = Data[:,4] * 1.e+6 # |E| :: (MV/m) -> (V/m)
-    Data[:,5] = Data[:,5]         #  H  :: (A/m)
+    wData[:,0] = Data[:,0] * 1.e-3 #  Z  :: (mm)   -> (m)
+    wData[:,1] = Data[:,1] * 1.e-3 #  R  :: (mm)   -> (m)
+    wData[:,2] = Data[:,0] * 0.0   #  z-coordinate
+    wData[:,3] = Data[:,2] * 1.e+6 #  Ez :: (MV/m) -> (V/m)
+    wData[:,4] = Data[:,3] * 1.e+6 #  Er :: (MV/m) -> (V/m)
+    wData[:,5] = Data[:,4] * 1.e+6 # |E| :: (MV/m) -> (V/m)
+    wData[:,6] = Data[:,5]         #  H  :: (A/m)
     
     # ------------------------------------------------- #
     # --- [4] save as a pointData                   --- #
     # ------------------------------------------------- #
+
+    wData = np.reshape( wData, (LK,LJ,LI,7) )
     
     import nkUtilities.save__pointFile as spf
-    spf.save__pointFile( outFile=const["efdFile"], Data=Data )
+    spf.save__pointFile( outFile=const["efdFile"], Data=wData )
 
 
 # ========================================================= #
