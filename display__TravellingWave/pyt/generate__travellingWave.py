@@ -36,18 +36,17 @@ def generate__travellingWave():
     import nkUtilities.save__pointFile as spf
     datFile   = "dat/wave{0:04}.dat"
     vtsFile   = "png/wave{0:04}.vts"
-    names     = ["wave"]
     
     # --  [3-2] Main Loop                           --  #
     for ik in range( const["nTime"] ):
         # --  [3-3] wave data synthesize            --  #
         wave        = np.zeros_like( wave1 )
         wave[...,0:3] = wave1[...,0:3]
-        wave[...,  3] = wave1[...,  3]*costh[ik] + wave2[...,  3]*sinth[ik]
+        wave[..., 3:] = wave1[..., 3:]*costh[ik] + wave2[..., 3:]*sinth[ik]
         # --  [3-4] save as vts file                --  #
-        vts.convert__vtkStructuredGrid( Data=wave, outFile=vtsFile.format(ik), names=names )
+        vts.convert__vtkStructuredGrid( Data=wave, outFile=vtsFile.format(ik) )
         # --  [3-5] save as dat file                --  #
-        spf.save__pointFile( outFile=datFile, Data=wave )
+        spf.save__pointFile( outFile=datFile.format(ik), Data=wave )
 
 
 # ========================================================= #

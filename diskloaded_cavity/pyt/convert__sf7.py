@@ -59,7 +59,8 @@ def convert__sf7():
     wData = np.reshape( wData, (LK,LJ,LI,7) )
     
     import nkUtilities.save__pointFile as spf
-    spf.save__pointFile( outFile=const["efdFile"], Data=wData )
+    names = ["xp","yp","zp","Ez","Er","|E|","Hp"]
+    spf.save__pointFile( outFile=const["efdFile"], Data=wData, names=names )
 
 
 # ========================================================= #
