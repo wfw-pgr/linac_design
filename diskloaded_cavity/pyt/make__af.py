@@ -40,7 +40,7 @@ def make__af():
         "dx={2}                                 ! mesh size \n"\
         "xdri={3[0]},ydri={3[1]}                ! drive point of RF \n"\
         "kmethod=1                              ! use beta to compute wave number \n"\
-        "beta={4} &                             ! Particle velocity for transit-time integrals \n"\
+        "beta={4}                               ! Particle velocity for transit-time integrals \n"\
         .format( const["unit_conversion"], const["frequency"]/1.0e6, const["meshsize"], \
                  const["xy_drive"], const["beta"] )
 
