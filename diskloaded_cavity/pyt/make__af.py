@@ -32,8 +32,8 @@ def make__af():
         "### created by K.Nishida\n"\
         "###\n\n".format( const["frequency"]/1.0e9 )
 
-    settings = \
-        "&reg kprob=1                           ! superfish problem \n"\
+    generals = \
+        "kprob=1                                ! superfish problem \n"\
         "icylin=1                               ! cylindrical coordinates \n"\
         "conv={0}                               ! unit conversion ( e.g. cm => mm ) \n"\
         "freq={1}                               ! frequency (MHz) \n"\
@@ -41,8 +41,19 @@ def make__af():
         "xdri={3[0]},ydri={3[1]}                ! drive point of RF \n"\
         "kmethod=1                              ! use beta to compute wave number \n"\
         "beta={4} &                             ! Particle velocity for transit-time integrals \n"\
-        "\n\n".format( const["unit_conversion"], const["frequency"]/1.0e6, const["meshsize"], \
-                       const["xy_drive"], const["beta"] )
+        .format( const["unit_conversion"], const["frequency"]/1.0e6, const["meshsize"], \
+                 const["xy_drive"], const["beta"] )
+
+    boundaries = \
+        "nbsup={0}                              ! boundary :: upper  ( 0:Neumann, 1:Dirichlet )\n"\
+        "nbslo={1}                              !          :: lower  \n"\
+        "nbsrt={2}                              !          :: right  \n"\
+        "nbslf={3}                              !          :: left   \n"\
+        .format( const["boundary_upper"], const["boundary_lower"], \
+                 const["boundary_right"], const["boundary_left"] )
+        
+    
+    settings   = "&reg {0}{1}&\n\n".format( generals, boundaries )
 
     # ------------------------------------------------- #
     # --- [3] pillbox cavity geometry               --- #
