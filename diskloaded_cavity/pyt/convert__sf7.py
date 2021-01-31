@@ -56,12 +56,40 @@ def convert__sf7():
     # --- [4] save as a pointData                   --- #
     # ------------------------------------------------- #
 
-    wData = np.reshape( wData, (LK,LJ,LI,7) )
+    wData_ = np.reshape( wData, (LK,LJ,LI,7) )
     
     import nkUtilities.save__pointFile as spf
     names = ["xp","yp","zp","Ez","Er","|E|","Hp"]
-    spf.save__pointFile( outFile=const["efdFile"], Data=wData, names=names )
+    spf.save__pointFile( outFile=const["efdFile"], Data=wData_, names=names )
 
+
+    # ------------------------------------------------- #
+    # --- [5] convert into field-type pointFile     --- #
+    # ------------------------------------------------- #
+    #
+    #  x => r direction
+    #  y => t direction
+    #
+    xp_, yp_, zp_  = 0, 1, 2
+    ex_, ey_, ez_  = 3, 4, 5
+    
+    pData          = np.zeros( (wData.shape[0],6) )
+    pData[:,xp_]   = wData[:,1]
+    pData[:,yp_]   = 0.0
+    pData[:,zp_]   = wData[:,0]
+    pData[:,ex_]   = wData[:,4]
+    pData[:,ey_]   = 0.0
+    pData[:,ez_]   = wData[:,3]
+
+    index          = np.lexsort( ( pData[:,xp_], pData[:,yp_], pData[:,zp_]) )
+    pData          = pData[index]
+    pData          = np.reshape( pData, (LI,1,LJ,6) )
+    
+    import nkUtilities.save__pointFile as spf
+    names = ["xp","yp","zp","Ex","Ey","Ez"]
+    spf.save__pointFile( outFile=const["fieldFile"], Data=pData, names=names )
+    
+    
 
 # ========================================================= #
 # ===   実行部                                          === #
