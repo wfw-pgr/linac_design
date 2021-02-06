@@ -40,10 +40,11 @@ def convert__spf2point( inpFile=None ):
     index          = np.lexsort( ( pData[:,xp_], pData[:,yp_], pData[:,zp_]) )
     pData          = pData[index]
     pData          = np.reshape( pData, (LI,1,LJ,6) )
-    
+
+    outFile        = "dat/out.dat"
     import nkUtilities.save__pointFile as spf
     names = ["xp","yp","zp","Ex","Ey","Ez"]
-    spf.save__pointFile( outFile=const["fieldFile"], Data=pData, names=names )
+    spf.save__pointFile( outFile=outFile, Data=pData, names=names )
     
 
 # ========================================================= #
