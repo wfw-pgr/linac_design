@@ -23,7 +23,7 @@ def convert__spf2point( inpFile=None ):
         
 
     import nkUtilities.load__pointFile as lpf
-    Data       = lpf.load__pointFile( inpFile=inpFile, returnType="point" )
+    Data       = lpf.load__pointFile( inpFile=inpFile, returnType="structured" )
     LK, LJ, LI = Data.shape[0], Data.shape[1], Data.shape[2]
 
     # ------------------------------------------------- #
