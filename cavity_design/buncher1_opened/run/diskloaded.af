@@ -1,0 +1,36 @@
+### 2.856 GHz Cavity
+### disk-loaded cavity 
+### created by K.Nishida
+###
+
+&reg kprob=1                                ! superfish problem 
+icylin=1                               ! cylindrical coordinates 
+conv=0.1                               ! unit conversion ( e.g. cm => mm ) 
+freq=2856.0                               ! frequency (MHz) 
+dx=1.0                                 ! mesh size 
+xdri=0.0,ydri=41.924                ! drive point of RF 
+kmethod=1                              ! use beta to compute wave number 
+beta=0.56                               ! Particle velocity for transit-time integrals 
+nbsup=1                              ! boundary :: upper  ( 0:Neumann, 1:Dirichlet )
+nbslo=0                              !          :: lower  
+nbsrt=1                              !          :: right  
+nbslf=1                              !          :: left   
+&
+
+$po x=0.0, y=0.0 $
+$po x=0.0, y=41.924 $
+$po x=7.297000000000001, y=41.924 $
+$po x=7.297000000000001, y=13.5 $
+$po nt=2, x=2.5, y=0.0, x0=9.797, y0=13.5 $
+$po x=12.297, y=41.924 $
+$po x=26.891000000000002, y=41.924 $
+$po x=26.891000000000002, y=13.5 $
+$po nt=2, x=2.5, y=0.0, x0=29.391000000000002, y0=13.5 $
+$po x=31.891000000000002, y=41.924 $
+$po x=46.485, y=41.924 $
+$po x=46.485, y=13.5 $
+$po nt=2, x=2.5, y=0.0, x0=48.985, y0=13.5 $
+$po x=51.485, y=41.924 $
+$po x=58.782000000000004, y=41.924 $
+$po x=58.782000000000004, y=0.0 $
+$po x=0.0, y=0.0 $

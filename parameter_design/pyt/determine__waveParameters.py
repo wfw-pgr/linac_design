@@ -39,7 +39,7 @@ def determine__waveParameters():
     params["beta_max"]              = np.sqrt( 1.0 - 1.0 / ( 1.0 + eth )**2 )
     params["vph"]                   = params["cv"]  * params["beta_p"]
     params["wavelength_incavity"]   = params["vph"] / params["fres"]
-    params["cavity_length"]         = params["wavelength_incavity"] / 3.0
+    params["cavity_length"]         = params["beta_p"] * params["wavelength_incavity"] / 3.0
     params["propagation_const"]     = 2.0 * np.pi / params["wavelength_incavity"]
 
     # -- [3-2] geometry of cavity                   --  #

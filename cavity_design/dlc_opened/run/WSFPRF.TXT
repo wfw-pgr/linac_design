@@ -1,0 +1,29 @@
+; This file contains start-up settings for WSFplot
+MainWindowXPosition=  136
+MainWindowYPosition=   49
+MainWindowWidth= 1152
+MainWindowHeight=  720
+EditWindowXPosition= 1140
+EditWindowYPosition=  150
+HardcopyFileExtension=    
+NumberOfContours=   30
+ContourLineWidth=1
+AxisLineWidth=1
+ArrowLineWidth=1
+CircleLineWidth=1
+BoundaryLineWidth=1
+MeshLineWidth=1
+GridSpacing=  0.30000000    
+TitleStatus=1
+AxisStatus=1
+TriangleStatus=1
+ContourStatus=1
+ArrowStatus=0
+CircleStatus=0
+FooterStatus=1
+XYSwapStatus=0
+OriginStatus=0
+LastProblemFile=C:\LANL\LINAC\DISKLOADED_REGULAR\RUN\DISKLOADED.AF
+ZoomLimits  1   -0.99871429E-02   10.496488     -0.87510636E-02   8.1098884       0.0000000    
+ZoomLevel=1
+MaxZoomLevel=1

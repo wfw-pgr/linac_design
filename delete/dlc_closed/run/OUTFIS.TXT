@@ -1,0 +1,472 @@
+Los Alamos National Laboratory Poisson Superfish
+Program Fish written by
+Ron F. Holsinger in collaboration with Klaus Halbach
+
+The original Poisson Superfish codes were developed
+by Ron F. Holsinger in collaboration with Klaus Halbach.
+These programs are provided as a service to the accelerator
+community by the Los Alamos Accelerator Code Group (LAACG).
+
+(c) Copyright 1985-2005, by the Regents of the University of California.        
+This software was produced under U. S. Government contract W-7405-ENG-36        
+by Los Alamos National Laboratory, which is operated by the University          
+of California for the U. S. Department of Energy.  Neither the Government       
+nor the University makes any warranty, express or implied, or assumes           
+any liability or responsibility for its use, or represents that use of          
+this software would not infringe privately owned rights.                        
+Unpublished - rights reserved under Copyright Laws of the United States.        
+
+
+Program Fish  7.17  released 1-13-2006 
+
+Starting from file C:\LANL\linac\dlc_closed_regular\run\DISKLOADED.T35.
+Program file: C:\LANL\AUTOFISH.EXE
+SF.INI file: C:\LANL\SF.INI  2-11-2021   4:14:24
+Memory used for DISKLOADED.T35 arrays:     194.400 K
+Memory used for other Fish arrays:     341.808 K
+
+Problem description:
+### 2.856 GHz Cavity
+### disk-loaded cavity
+### created by K.Nishida
+###
+Problem file: C:\LANL\LINAC\DLC_CLOSED_REGULAR\RUN\DISKLOADED.AF  2-11-2021   7:02:52
+Problem file length:        1386 bytes
+Originating program: Autofish    Problem type: Unknown RF Cavity
+
+Coordinates and lengths have dimensions of millimeters.
+
+Problem constants and variables.
+Letter A in the code column indicates a value supplied in the
+Automesh input file.
+
+Variable Code         Value     Description
+ALPHAT          3.930000000E-03 Temperature coefficient of resistance
+ASCALE           3767.30313     Scaling factor for H at drive point
+BETA       A    0.999000000     Particle velocity
+BETA1           0.100000000     Starting BETA in transit-time table
+BETA2           0.950000000     Ending BETA in transit-time table
+CCLDELK          1.00000000     Increment for coupling for table in SFO
+CCLMAXK          6.00000000     Highest coupling for table in SFO
+CCLMINK          1.00000000     Lowest coupling for table in SFO
+CLENGTH                 0.0     Cavity length for normalization in SFO
+CLIGHT          2.997924580E+10 Exact speed of light in cm/sec
+CONV       A    0.100000000     Length conversion (number of units per cm)
+DBETA           5.000000000E-02 BETA increment in transit-time table
+DELFR                   0.0     Frequency step size for a resonance search
+DIAGDLL                   0     If 1, DLL writes diagnostics to DiagDLL.txt
+DPHI             180.000000     Phase length of the problem geometry
+DSLOPE           1.00000000     Slope of D(k^2) function
+DSTOLER         2.000000000E-02 Tolerance required on D(k^2)
+DX1             0.998714286     First X mesh interval (at XMIN)
+DXMIN           0.998714286     Minimum X mesh interval (found by Automesh)
+DYMIN           0.875106383     Minimum Y mesh interval (found by Automesh)
+ENORM            1000000.00     Field normalization for NORM=4 option
+EPS0            8.854187818E-12 Permittivity of free space
+EPSIK           1.000000000E-04 Frequency convergence parameter
+EPSO            1.000000000E-05 Convergence parameter in mesh optimization
+EZERO            1000000.00     E0 for normalization in SFO when NORM=0
+EZEROT           1000000.00     E0*T for normalization in SFO when NORM=1
+FMU0            1.256637061E-06 Permeability of free space
+FREQ       A     2856.00000     RF cavity resonant frequency
+FREQD                   0.0     Design frequency for a cavity (MHz)
+HPHI             5000.00000     Normalization magnetic field for NORM=2
+IBETA                     0     If >0, SFO writes transit-time vs BETA
+ICCC                      1     1 for real arrays, 2 for complex arrays
+ICCP                      1     If 1, compute material power loss
+ICORNER1                  0     First corner segment for computing average H
+ICORNER2                  0     Last corner segment for computing average H
+ICYLIN     A              1     0 for X,Y problems, 1 for Z,R problems
+IMAX                    108     KMAX+2
+INFODATA                  0     Number of tuning-code parameters
+IOBSEG                   -1     First segment of the CCL outer boundary
+IPIVOT                    1     Pivoting in matrix inversion routines
+IRESID                    0     If 1, calculate potential residuals
+IRMAX                    25     Used in optimization of RHOXY
+IRTYPE                    0     Surface resistance option indicator
+ISLOT                     0     If 1, SFO computes coupling-slot power loss
+ITFILE                    0     If 1, SFO writes transit-time plot file
+ITOT                   5400     (KMAX+2)*(LMAX+2)
+KDRI                      1     K coordinate of the drive point
+KMAX                    106     Number of horizontal logical mesh points
+KMETHOD    A              1     Wavenumber computation method (1= use beta)
+KPROB      A              1     Problem type indicator (Superfish)
+LAST35                    1     Code for last program to update T35 file
+LCYCLE                   46     Iteration number in mesh optimization
+LDRI                     48     L coordinate of the drive point
+LINT                      1     Logical-mesh coordinate for Ez integration
+LMAX                     48     Number of vertical logical mesh points
+MAXCY                    19     Maximum number of cycles (-1: use default)
+MAXPPR                  504     Maximum points per region
+NAIR                   4483     Number of air points
+NBND                    199     Number of Dirichlet boundary points
+NBSLF      A              0     Left-side boundary condition
+NBSLO      A              0     Lower boundary condition
+NBSRT      A              0     Right-side boundary condition
+NBSUP      A              1     Upper boundary condition
+NDRI                   5186     Drive point index = IRLAX(NPINP)
+NEGAT                     0     Zero-area triangle indicator
+NFE                       0     Number of iron points
+NHSTEM                    1     Number of half stems
+NINTER                    0     Number of interface points
+NMATR                     0     Number of material records in T35 file
+NORM                      0     Normalization method in SFO
+NPBOUND                 503     Total number of boundary points in the mesh
+NPINP                  4683     Total points in problem
+NPONTS                 4181     Number of unknown relaxation points
+NREG                      2     Number of regions
+NRMSEG                    1     Normalization segment number for NORM=2
+NSEG                     16     Number of boundary segments
+NSPL                      1     Number of special-potential points
+NSTEP                     0     Number of steps for a resonance search
+OMEGAM          1.000000000E-03 Used in optimization of RHOXY
+PI               3.14159265     The number pi to machine precision
+PLCELL           360.000000     Phase length per cell for multicell problems
+RESIDR          1.000000000E-08 Residual resistance of a superconductor
+RFMU             1.00000000     Permeability for rf surface resistance
+RHO             1.724100000E-06 Material resistivity (Ohm-m)
+RHOR            1.724100000E-06 Reference resistivity (Ohm-cm) at TEMPR
+RHOXY            1.60000000     Over-relaxation factor in mesh optimization
+RMASS           -2.00000000     Rest mass energy of particle in SFO
+RS                      0.0     RF surface resistance (Ohms)
+RSTEM            1.00000000     Stem radius in cm
+SLOSS           3.000000000E-02 Coupling-slot power factor per % coupling
+TC               9.20000000     Critical temperature of a superconductor
+TEMPC            20.0000000     Normal conductor operating temperature
+TEMPK            2.00000000     Operating temperature of a superconductor
+TEMPR            20.0000000     Reference temperature for IRTYPE=3
+TRIAVG          0.436716281     Average area of all triangles
+TRIMAX          0.576256062     Area of the largest positive-area triangle
+TRIMIN          0.258956254     Area of the smallest positive-area triangle
+VOLUME           483952.696     Cavity volume (cylindrical symmetry only)
+XDRI       A            0.0     X coordinate of the drive point
+XMAXG            104.865000     Upper X bound of the problem geometry
+XMING                   0.0     Lower X bound of the problem geometry
+XNORM1                  0.0     Starting X for NORM=4 integration path
+XNORM2                  0.0     Ending X for NORM=4 integration path
+XYAREA           3870.17968     Total cross sectional area
+YDRI       A     41.1300000     Y coordinate of the drive point
+YMAXG            41.1300000     Upper Y bound of the problem geometry
+YMING                   0.0     Lower Y bound of the problem geometry
+YNORM1                  0.0     Starting Y for NORM=4 integration path
+YNORM2                  0.0     Ending Y for NORM=4 integration path
+ZCTR                    0.0     Reference Z in transit-time integrals
+-------------------------------------------------------------------------------
+No materials other than air or empty space.
+-------------------------------------------------------------------------------
+      Kmax =  106, Lmax =   48                        k^2 = 0.35829004
+      ----------------------------------------------------------------
+      Writing temporary data arrays to memory.
+      Memory used:         1.929 M
+      ----------------------------------------------------------------
+      Total number of mesh points = 5400                   freq = 2856
+                                                      D(k^2) = 101.999
+      Solution time =    0.093 sec.                       End cycle  0
+      ----------------------------------------------------------------
+                                                        Start cycle  1
+
+
+               Stepping k^2 1% from point 1.
+
+
+                              del(k^2) = 0.0035829      k^2 = 0.361873
+                                                      freq = 2870.2445
+                                                      D(k^2) = 243.335
+      Solution time =    0.156 sec.                       End cycle  1
+      ----------------------------------------------------------------
+                                                        Start cycle  2
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3618729   2.4333E+02   3.9447E+04
+      Upper bound    0.3618729   2.4333E+02   3.9447E+04
+
+      BEST=1             k^2        D(k^2)      D'(k^2)
+      1 (cycle  0)   0.3582900   1.0200E+02   3.9447E+04
+      2 (cycle  1)   3.6187294   2.4333E+02   3.9447E+04
+
+
+               Using the two-point parabola with slope=-1 at D(k^2)=0.
+
+
+                              del(k^2) = -0.010163       k^2 = 0.35171
+                                                      freq = 2829.6545
+                                                      D(k^2) = 234.873
+      Solution time =    0.094 sec.                       End cycle  2
+      ----------------------------------------------------------------
+                                                        Start cycle  3
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3517104   2.3487E+02  -2.0195E+04
+      Lower bound    0.3517104   2.3487E+02  -2.0195E+04
+      Upper bound    0.3582900   1.0200E+02   1.8420E+04   2.9344E+06
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle  2)   0.3517104   2.3487E+02  -2.0195E+04
+      2 (cycle  0)   3.5829004   1.0200E+02   1.8420E+04
+      3 (cycle  1)   3.6187294   2.4333E+02   3.9447E+04
+
+
+               Using the minimum of the three-point parabola.
+
+
+                              del(k^2) = 0.0050104      k^2 = 0.356721
+                                                      freq = 2849.7384
+                                                      D(k^2) = 226.037
+      Solution time =    0.110 sec.                       End cycle  3
+      ----------------------------------------------------------------
+                                                        Start cycle  4
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3567207   2.2604E+02  -6.0608E+04  -5.8722E+06
+      Lower bound    0.3582900   1.0200E+02  -4.2949E+04   1.1499E+07
+      Upper bound    0.3618729   2.4333E+02   3.9447E+04
+
+      BEST=3             k^2        D(k^2)      D'(k^2)
+      1 (cycle  3)   0.3567207   2.2604E+02  -6.0608E+04
+      2 (cycle  0)   3.5829004   1.0200E+02  -4.2949E+04
+      3 (cycle  1)   3.6187294   2.4333E+02   3.9447E+04
+
+
+               Using the minimum of the three-point parabola.
+
+
+                              del(k^2) = 0.0025031      k^2 = 0.359224
+                                                      freq = 2859.7193
+                                                       D(k^2) = 87.305
+      Solution time =    0.094 sec.                       End cycle  4
+      ----------------------------------------------------------------
+                                                        Start cycle  5
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3592238   8.7305E+01   3.7157E+03   1.0415E+07
+      Lower bound    0.3582900   1.0200E+02  -3.9351E+04   1.2645E+07
+      Upper bound    0.3592238   8.7305E+01   3.7157E+03   1.0415E+07
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle  0)   0.3582900   1.0200E+02  -3.9351E+04
+      2 (cycle  4)   3.5922383   8.7305E+01   3.7157E+03
+      3 (cycle  1)   3.6187294   2.4333E+02   5.8899E+04
+
+
+               Using the minimum of the three-point parabola.
+
+
+                              del(k^2) = -8.91886E-05   k^2 = 0.359135
+                                                      freq = 2859.3643
+                                                      D(k^2) = 63.3909
+      Solution time =    0.093 sec.                       End cycle  5
+      ----------------------------------------------------------------
+                                                        Start cycle  6
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3591346   6.3391E+01   2.3815E+05   1.6805E+08
+      Lower bound    0.3582900   1.0200E+02  -5.7372E+04   6.9031E+06
+      Upper bound    0.3591346   6.3391E+01   2.3815E+05   1.6805E+08
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle  3)   0.3567207   2.2604E+02  -6.0608E+04
+      2 (cycle  0)   3.5829004   1.0200E+02  -5.7372E+04
+      3 (cycle  5)   3.5913464   6.3391E+01   2.3815E+05
+      Cannot find consistent 3-point parabola solution.
+      Try using two best points.
+
+
+               Using the midpoint between points 2 and 3.
+
+
+                              del(k^2) = -4.22301E-04   k^2 = 0.358712
+                                                      freq = 2857.6826
+                                                      D(k^2) = 3.77652
+      Solution time =    0.094 sec.                       End cycle  6
+      ----------------------------------------------------------------
+                                                        Start cycle  7
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3587123   3.7765E+00  -4.5712E+04   2.2126E+08
+      Lower bound    0.3587123   3.7765E+00  -4.5712E+04   2.2126E+08
+      Upper bound    0.3591346   6.3391E+01   2.4599E+05   1.2411E+08
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle  0)   0.3582900   1.0200E+02  -2.0003E+05
+      2 (cycle  6)   3.5871234   3.7765E+00  -4.5712E+04
+      3 (cycle  5)   3.5913464   6.3391E+01   2.4599E+05
+
+
+               Using the minimum of the three-point parabola.
+
+
+                              del(k^2) = 5.1649E-05     k^2 = 0.358764
+                                                      freq = 2857.8884
+                                                     D(k^2) = 0.350607
+      Solution time =    0.094 sec.                       End cycle  7
+      ----------------------------------------------------------------
+                                                        Start cycle  8
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3587640   3.5061E-01  -3.7417E+04   2.7991E+08
+      Lower bound    0.3587640   3.5061E-01  -3.7417E+04   2.7991E+08
+      Upper bound    0.3591346   6.3391E+01   2.4911E+05   1.0661E+08
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle  6)   0.3587123   3.7765E+00  -8.4449E+04
+      2 (cycle  7)   3.5876399   3.5061E-01  -3.7417E+04
+      3 (cycle  5)   3.5913464   6.3391E+01   2.4911E+05
+      Solution      3.5878E-01   0.0000E+00  -2.4797E+04 (3-point)
+
+
+               Using the minimum of the three-point parabola.
+
+
+                              del(k^2) = 3.34189E-05    k^2 = 0.358797
+                                                      freq = 2858.0215
+                                                     D(k^2) = 0.084685
+      Solution time =    0.078 sec.                       End cycle  8
+      ----------------------------------------------------------------
+                                                        Start cycle  9
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3587974   8.4685E-02   9.6857E+03   2.6397E+08
+      Lower bound    0.3587640   3.5061E-01  -3.0889E+04   3.4310E+08
+      Upper bound    0.3587974   8.4685E-02   9.6857E+03   2.6397E+08
+
+      BEST=3             k^2        D(k^2)      D'(k^2)
+      1 (cycle  6)   0.3587123   3.7765E+00  -8.4449E+04
+      2 (cycle  7)   3.5876399   3.5061E-01  -3.0889E+04
+      3 (cycle  8)   3.5879741   8.4685E-02   9.6857E+03
+
+
+               Using the minimum of the three-point parabola.
+
+
+                              del(k^2) = -1.09114E-05   k^2 = 0.358786
+                                                       freq = 2857.978
+                                                  D(k^2) = 6.55604E-06
+      Solution time =    0.094 sec.                       End cycle  9
+      ----------------------------------------------------------------
+                                                        Start cycle 10
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3587865   6.5560E-06   1.4076E+02   3.4917E+08
+      Lower bound    0.3587640   3.5061E-01  -3.0981E+04   3.4221E+08
+      Upper bound    0.3587865   6.5560E-06   1.4076E+02   3.4917E+08
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle  7)   0.3587640   3.5061E-01  -3.0981E+04
+      2 (cycle  9)   3.5878650   6.5560E-06   1.4076E+02
+      3 (cycle  8)   3.5879741   8.4685E-02   1.3401E+04
+      Solution      3.5879E-01   0.0000E+00  -3.8781E+01 (3-point)
+
+
+               Using the minimum of the three-point parabola.
+
+
+                              del(k^2) = -1.00785E-07   k^2 = 0.358786
+                                                      freq = 2857.9776
+                                                  D(k^2) = 1.05024E-08
+      Solution time =    0.094 sec.                       End cycle 10
+      ----------------------------------------------------------------
+                                                        Start cycle 11
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3587864   1.0502E-08  -5.4111E+00   3.4905E+08
+      Lower bound    0.3587864   1.0502E-08  -5.4111E+00   3.4905E+08
+      Upper bound    0.3587865   6.5560E-06   1.3538E+02   3.4941E+08
+
+      BEST=1             k^2        D(k^2)      D'(k^2)
+      1 (cycle 10)   0.3587864   1.0502E-08  -5.4111E+00
+      2 (cycle  9)   3.5878650   6.5560E-06   1.3538E+02
+      3 (cycle  8)   3.5879741   8.4685E-02   1.3401E+04
+
+
+               Using the minimum of the three-point parabola.
+
+
+                              del(k^2) = 3.92467E-09    k^2 = 0.358786
+                                                      freq = 2857.9776
+                                                 D(k^2) = -3.52051E-10
+      Solution time =    0.094 sec.                       End cycle 11
+      ----------------------------------------------------------------
+                                                        Start cycle 12
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3587864  -3.5205E-10  -2.2081E-02   3.4953E+08
+      Lower bound    0.3587864   1.0502E-08  -5.5055E+00   3.4904E+08
+      Upper bound    0.3587864  -3.5205E-10  -2.2081E-02   3.4953E+08
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle 10)   0.3587864   1.0502E-08  -5.5055E+00
+      2 (cycle 11)   3.5878640  -3.5205E-10  -2.2081E-02
+      3 (cycle  9)   3.5878650   6.5560E-06   1.3538E+02
+      Cannot find consistent 3-point parabola solution.
+      Try using two best points.
+
+
+               Using the two-point parabola with slope=-1 at D(k^2)=0.
+
+
+                              del(k^2) = -5.10591E-10   k^2 = 0.358786
+                                                      freq = 2857.9776
+                                                 D(k^2) = -1.58533E-10
+      Solution time =    0.110 sec.                       End cycle 12
+      ----------------------------------------------------------------
+                                                        Start cycle 13
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3587864  -1.5853E-10  -7.3595E-01   3.4953E+08
+      Lower bound    0.3587864   1.0502E-08  -5.5060E+00   3.4904E+08
+      Upper bound    0.3587864  -1.5853E-10  -7.3595E-01   3.4953E+08
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle 10)   0.3587864   1.0502E-08  -5.5060E+00
+      2 (cycle 12)   3.5878640  -1.5853E-10  -7.3595E-01
+      3 (cycle 11)   3.5878640  -3.5205E-10  -2.2070E-02
+      Cannot find consistent 3-point parabola solution.
+      Try using two best points.
+
+
+               Using the two-point parabola with slope=-1 at D(k^2)=0.
+
+
+                              del(k^2) = -1.81433E-10   k^2 = 0.358786
+                                                      freq = 2857.9776
+                                                 D(k^2) = -1.99113E-12
+      Solution time =    0.110 sec.                       End cycle 13
+      ----------------------------------------------------------------
+                                                        Start cycle 14
+
+                         k^2        D(k^2)      D'(k^2)     D"(k^2)
+      Current point  0.3587864  -1.9911E-12  -9.8964E-01   3.4953E+08
+      Lower bound    0.3587864   1.0502E-08  -5.5061E+00   3.4904E+08
+      Upper bound    0.3587864  -1.9911E-12  -9.8964E-01   3.4953E+08
+
+      BEST=2             k^2        D(k^2)      D'(k^2)
+      1 (cycle 10)   0.3587864   1.0502E-08  -5.5061E+00
+      2 (cycle 13)   3.5878640  -1.9911E-12  -9.8964E-01
+      3 (cycle 12)   3.5878640  -1.5853E-10  -7.3597E-01
+      Cannot find consistent 3-point parabola solution.
+      Try using two best points.
+
+
+               Using the two-point parabola with slope=-1 at D(k^2)=0.
+
+
+                              del(k^2) = -1.99391E-12   k^2 = 0.358786
+                                                      freq = 2857.9776
+      ----------------------------------------------------------------
+      Solution converged at the start of cycle 14.
+      Initial frequency = 2856             Final frequency = 2857.9776
+      Elapsed time  =    1.66 sec
+
+Problem variables computed by this code.
+
+Variable Code         Value     Description
+DKSQ           -1.993905041E-12 Change in k^2 after an iteration in Fish
+DSLOPE         -0.989641502     Slope of D(k^2) function
+ERG             2.549036514E+09 Integral (H^2 r dr dz)
+FREQ             2857.97761     RF cavity resonant frequency
+ICYCLE                   14     Present iteration number
+METHOD                    3     Method used to get frequency in root finder
+Q2I                     0.0     1/2Q passed from CFish to SFO
+RESIK           5.549627949E-12 Residual = DKSQ/XKSQ
+XK0             0.598987814     The wave number k = 2pif/c
+XKSQ            0.358786402     Square of the wave number
